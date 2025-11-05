@@ -1,9 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 
 export default function ForBusiness() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const packages = ['teamBuilding', 'conference', 'corporate', 'retreat', 'training', 'celebration'] as const;

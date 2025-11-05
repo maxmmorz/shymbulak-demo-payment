@@ -1,9 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 
 export default function Restaurants() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const restaurants = ['alpine', 'panorama', 'bistro', 'cafe', 'bar', 'buffet'] as const;

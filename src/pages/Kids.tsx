@@ -1,9 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 
 export default function Kids() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const activities = ['playground', 'skiSchool', 'snowpark', 'games', 'daycare', 'party'] as const;
