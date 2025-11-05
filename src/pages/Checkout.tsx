@@ -19,6 +19,7 @@ export default function Checkout() {
   const [showNewCardForm, setShowNewCardForm] = useState(false);
   const [showQRModal, setShowQRModal] = useState(false);
   const [qrType, setQrType] = useState<'kaspi' | 'halyk' | null>(null);
+  const [saveCard, setSaveCard] = useState(true);
 
   const [newCardData, setNewCardData] = useState({
     cardNumber: '',
@@ -83,6 +84,49 @@ export default function Checkout() {
                       {t('checkout.title')}
                     </h1>
                     <p className="text-sm text-muted-foreground mt-0.5">{t('checkout.subtitle')}</p>
+                  </div>
+                </div>
+
+                {/* Digital Wallet Section */}
+                <div className="mb-5">
+                  <h2 className="text-sm font-bold text-muted-foreground mb-3 uppercase tracking-wider flex items-center gap-2">
+                    <svg className="w-5 h-5 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                    </svg>
+                    {t('checkout.digitalWallet')}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Apple Pay */}
+                    <button
+                      onClick={() => handlePayment(true)}
+                      className="flex items-center justify-center gap-3 bg-black hover:bg-gray-900 text-white rounded-2xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
+                    >
+                      <svg className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                      </svg>
+                      <span className="font-bold text-lg">{t('checkout.applePay')}</span>
+                    </button>
+
+                    {/* Google Pay */}
+                    <button
+                      onClick={() => handlePayment(true)}
+                      className="flex items-center justify-center gap-3 bg-white hover:bg-gray-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-black dark:text-white border-2 border-gray-200 dark:border-slate-600 rounded-2xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
+                    >
+                      <svg className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+                      </svg>
+                      <span className="font-bold text-lg">{t('checkout.googlePay')}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="relative my-5">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t-2 border-border"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-5 py-1.5 bg-white dark:bg-card text-muted-foreground font-bold uppercase tracking-wide rounded-full border-2 border-border">{t('checkout.or')}</span>
                   </div>
                 </div>
 
@@ -251,53 +295,31 @@ export default function Checkout() {
                               />
                             </div>
                           </div>
+
+                          {/* Save Card Toggle */}
+                          <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors">
+                            <button
+                              type="button"
+                              onClick={() => setSaveCard(!saveCard)}
+                              className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${
+                                saveCard ? 'bg-ski-blue' : 'bg-border'
+                              }`}
+                            >
+                              <span
+                                className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-transform duration-200 ${
+                                  saveCard ? 'translate-x-5' : 'translate-x-0'
+                                }`}
+                              />
+                            </button>
+                            <div className="flex-1">
+                              <div className="text-sm font-bold text-foreground">Save card for future use</div>
+                              <div className="text-xs text-muted-foreground">Securely save this card to your account</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </>
                   )}
-                </div>
-
-                {/* Divider */}
-                <div className="relative my-5">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t-2 border-border"></div>
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="px-5 py-1.5 bg-white dark:bg-card text-muted-foreground font-bold uppercase tracking-wide rounded-full border-2 border-border">{t('checkout.or')}</span>
-                  </div>
-                </div>
-
-                {/* Digital Wallet Section */}
-                <div className="mb-5">
-                  <h2 className="text-sm font-bold text-muted-foreground mb-3 uppercase tracking-wider flex items-center gap-2">
-                    <svg className="w-5 h-5 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
-                    </svg>
-                    {t('checkout.digitalWallet')}
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Apple Pay */}
-                    <button
-                      onClick={() => handlePayment(true)}
-                      className="flex items-center justify-center gap-3 bg-black hover:bg-gray-900 text-white rounded-2xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
-                    >
-                      <svg className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                      </svg>
-                      <span className="font-bold text-lg">{t('checkout.applePay')}</span>
-                    </button>
-
-                    {/* Google Pay */}
-                    <button
-                      onClick={() => handlePayment(true)}
-                      className="flex items-center justify-center gap-3 bg-white hover:bg-gray-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-black dark:text-white border-2 border-gray-200 dark:border-slate-600 rounded-2xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
-                    >
-                      <svg className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
-                        <path fill="#4285F4" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
-                      </svg>
-                      <span className="font-bold text-lg">{t('checkout.googlePay')}</span>
-                    </button>
-                  </div>
                 </div>
 
                 {/* Divider */}
