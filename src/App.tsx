@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Home from '@/pages/Home';
 import Tickets from '@/pages/Tickets';
+import SkiPassForm from '@/pages/SkiPassForm';
 import Rent from '@/pages/Rent';
 import School from '@/pages/School';
 import Entertainment from '@/pages/Entertainment';
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tickets" element={<Tickets />} />
+        <Route path="/ski-pass-form" element={<SkiPassForm />} />
         <Route path="/rent" element={<Rent />} />
         <Route path="/school" element={<School />} />
         <Route path="/entertainment" element={<Entertainment />} />

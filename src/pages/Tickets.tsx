@@ -101,7 +101,12 @@ export default function Tickets() {
 
                   {/* Buy Button */}
                   <Button
-                    onClick={() => navigate('/checkout')}
+                    onClick={() => navigate('/ski-pass-form', {
+                      state: {
+                        ticketType: ticketType,
+                        category: 'adult'
+                      }
+                    })}
                     className={`w-full mt-6 min-h-[48px] font-bold text-base ${
                       ticketType === 'fullDay'
                         ? 'bg-ski-blue hover:bg-ski-blue/90'
