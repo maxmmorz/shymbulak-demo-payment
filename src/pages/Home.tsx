@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import NewsCarousel from '@/components/NewsCarousel';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -36,14 +38,14 @@ export default function Home() {
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight">
               <span className="bg-gradient-to-r from-ski-blue via-primary to-ski-ice bg-clip-text text-transparent">
-                Shymbulak
+                {t('home.title')}
               </span>
               <br />
-              <span className="text-foreground">Payment Demo</span>
+              <span className="text-foreground">{t('home.subtitle')}</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-10 md:mb-12 px-4 max-w-2xl mx-auto font-medium">
-              Experience seamless payments for ski passes, lessons, and equipment rentals
+              {t('home.description')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16">
@@ -52,7 +54,7 @@ export default function Home() {
                 size="lg"
                 className="w-full sm:w-auto min-h-[56px] px-8 sm:px-10 text-base sm:text-lg font-semibold mountain-shadow bg-primary hover:bg-primary/90"
               >
-                Purchase Ski Pass
+                {t('home.purchasePass')}
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -64,7 +66,7 @@ export default function Home() {
                 size="lg"
                 className="w-full sm:w-auto min-h-[56px] px-8 sm:px-10 text-base sm:text-lg font-semibold border-2 border-primary text-primary hover:bg-primary/5"
               >
-                View Demo
+                {t('home.viewDemo')}
               </Button>
             </div>
 
@@ -76,8 +78,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">Secure Payments</h3>
-                <p className="text-sm sm:text-base text-muted-foreground">Bank-grade encryption for all transactions</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">{t('home.features.secure.title')}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{t('home.features.secure.description')}</p>
               </div>
 
               <div className="bg-white/80 dark:bg-card/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-border hover:shadow-xl transition-shadow">
@@ -86,8 +88,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">Instant Confirmation</h3>
-                <p className="text-sm sm:text-base text-muted-foreground">Get your tickets immediately after payment</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">{t('home.features.instant.title')}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{t('home.features.instant.description')}</p>
               </div>
 
               <div className="bg-white/80 dark:bg-card/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-border hover:shadow-xl transition-shadow sm:col-span-2 lg:col-span-1">
@@ -96,8 +98,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">24/7 Support</h3>
-                <p className="text-sm sm:text-base text-muted-foreground">Always here to help with your purchase</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">{t('home.features.support.title')}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{t('home.features.support.description')}</p>
               </div>
             </div>
 
@@ -106,7 +108,7 @@ export default function Home() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
-                Demo Application - No real payments processed
+                {t('home.demoNotice')}
               </p>
             </div>
           </div>

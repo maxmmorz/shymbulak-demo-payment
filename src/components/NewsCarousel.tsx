@@ -1,53 +1,54 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface NewsItem {
   id: number;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   image: string;
-  category: string;
+  categoryKey: string;
   date: string;
 }
 
-const newsItems: NewsItem[] = [
+const newsItemsData: NewsItem[] = [
   {
     id: 1,
-    title: 'New Alpine Slopes Opening This Week',
-    description: 'Experience our brand new black diamond runs with breathtaking mountain views and fresh powder.',
+    titleKey: 'news.items.newSlopes.title',
+    descriptionKey: 'news.items.newSlopes.description',
     image: '🏔️',
-    category: 'Slopes',
+    categoryKey: 'news.categories.slopes',
     date: 'Nov 5, 2025',
   },
   {
     id: 2,
-    title: 'Winter Season Pass - 30% Off',
-    description: 'Limited time offer! Get your season pass now and enjoy unlimited access to all facilities.',
+    titleKey: 'news.items.seasonPass.title',
+    descriptionKey: 'news.items.seasonPass.description',
     image: '🎿',
-    category: 'Promotions',
+    categoryKey: 'news.categories.promotions',
     date: 'Nov 4, 2025',
   },
   {
     id: 3,
-    title: 'Fresh Powder Alert - 40cm Overnight',
-    description: 'Perfect conditions today! Over 40cm of fresh snow fell overnight. Get here early!',
+    titleKey: 'news.items.freshPowder.title',
+    descriptionKey: 'news.items.freshPowder.description',
     image: '❄️',
-    category: 'Weather',
+    categoryKey: 'news.categories.weather',
     date: 'Nov 5, 2025',
   },
   {
     id: 4,
-    title: 'Night Skiing Events Every Friday',
-    description: 'Join us for magical night skiing with illuminated slopes and live DJ performances.',
+    titleKey: 'news.items.nightSkiing.title',
+    descriptionKey: 'news.items.nightSkiing.description',
     image: '🌙',
-    category: 'Events',
+    categoryKey: 'news.categories.events',
     date: 'Nov 3, 2025',
   },
   {
     id: 5,
-    title: 'New Equipment Rental Station Open',
-    description: 'State-of-the-art ski and snowboard equipment now available at our expanded rental center.',
+    titleKey: 'news.items.newRental.title',
+    descriptionKey: 'news.items.newRental.description',
     image: '⛷️',
-    category: 'Facilities',
+    categoryKey: 'news.categories.facilities',
     date: 'Nov 2, 2025',
   },
 ];
@@ -55,13 +56,14 @@ const newsItems: NewsItem[] = [
 export default function NewsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const { t } = useTranslation();
 
   // Auto-advance carousel
   useEffect(() => {
     if (isPaused) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItemsData.length);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -72,14 +74,14 @@ export default function NewsCarousel() {
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + newsItems.length) % newsItems.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + newsItemsData.length) % newsItemsData.length);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItemsData.length);
   };
 
-  const currentNews = newsItems[currentIndex];
+  const currentNews = newsItemsData[currentIndex];
 
   return (
     <div className="relative bg-gradient-to-r from-ski-blue via-primary to-ski-ice overflow-hidden">
@@ -103,21 +105,21 @@ export default function NewsCarousel() {
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-4 sm:mb-6">
                   <span className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-sm sm:text-base font-semibold text-white">
-                    {currentNews.category}
+                    {t(currentNews.categoryKey)}
                   </span>
                   <span className="text-sm sm:text-base text-blue-100">{currentNews.date}</span>
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
-                  {currentNews.title}
+                  {t(currentNews.titleKey)}
                 </h2>
 
                 <p className="text-lg sm:text-xl md:text-2xl text-blue-50 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
-                  {currentNews.description}
+                  {t(currentNews.descriptionKey)}
                 </p>
 
                 <button className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-white text-primary hover:bg-blue-50 rounded-xl font-bold text-base sm:text-lg transition-colors shadow-lg hover:shadow-xl">
-                  Read More
+                  {t('news.readMore')}
                   <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -150,7 +152,7 @@ export default function NewsCarousel() {
 
         {/* Dots Indicator */}
         <div className="flex items-center justify-center gap-2 sm:gap-3 pb-8 sm:pb-10 md:pb-12">
-          {newsItems.map((_, index) => (
+          {newsItemsData.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
