@@ -12,9 +12,6 @@ export default function EntertainmentsSection() {
     { key: 'nightSkiing', image: '🌙' },
     { key: 'spa', image: '💆' },
     { key: 'tours', image: '🥾' },
-    { key: 'photography', image: '📸' },
-    { key: 'paragliding', image: '🪂' },
-    { key: 'snowmobile', image: '🏍️' },
   ];
 
   return (

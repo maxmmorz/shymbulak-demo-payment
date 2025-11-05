@@ -99,6 +99,28 @@ const resources = {
           snowmobile: 'Snowmobile Excursions',
         },
       },
+      hotelsSection: {
+        title: 'Hotels',
+        items: {
+          luxury: 'Luxury Mountain Resort',
+          cozy: 'Cozy Alpine Lodge',
+          family: 'Family-Friendly Hotel',
+          boutique: 'Boutique Mountain Inn',
+          chalet: 'Private Ski Chalet',
+          budget: 'Budget-Friendly Hostel',
+        },
+      },
+      restaurantsSection: {
+        title: 'Restaurants',
+        items: {
+          fine: 'Fine Dining Restaurant',
+          traditional: 'Traditional Cuisine',
+          cafe: 'Mountain Café',
+          bar: 'Après-Ski Bar',
+          fastFood: 'Quick Bites',
+          panoramic: 'Panoramic View Restaurant',
+        },
+      },
       checkout: {
         title: 'Complete Purchase',
         subtitle: 'Secure ski pass checkout',
@@ -259,6 +281,28 @@ const resources = {
           snowmobile: 'Поездки на снегоходах',
         },
       },
+      hotelsSection: {
+        title: 'Отели',
+        items: {
+          luxury: 'Роскошный горный курорт',
+          cozy: 'Уютный альпийский домик',
+          family: 'Семейный отель',
+          boutique: 'Бутик-отель в горах',
+          chalet: 'Частное шале для катания',
+          budget: 'Бюджетный хостел',
+        },
+      },
+      restaurantsSection: {
+        title: 'Рестораны',
+        items: {
+          fine: 'Ресторан изысканной кухни',
+          traditional: 'Традиционная кухня',
+          cafe: 'Горное кафе',
+          bar: 'Après-Ski бар',
+          fastFood: 'Быстрые перекусы',
+          panoramic: 'Ресторан с панорамным видом',
+        },
+      },
       checkout: {
         title: 'Завершение покупки',
         subtitle: 'Безопасная оплата ски-пасса',
@@ -417,6 +461,28 @@ const resources = {
           photography: 'Фотосессиялар',
           paragliding: 'Параглайдинг',
           snowmobile: 'Қар мотоциклдерімен саяхат',
+        },
+      },
+      hotelsSection: {
+        title: 'Қонақүйлер',
+        items: {
+          luxury: 'Сәнді тау курорты',
+          cozy: 'Жайлы альпі үйі',
+          family: 'Отбасылық қонақүй',
+          boutique: 'Таулы бутик қонақүй',
+          chalet: 'Жеке шаңғы шале',
+          budget: 'Бюджетті хостел',
+        },
+      },
+      restaurantsSection: {
+        title: 'Мейрамханалар',
+        items: {
+          fine: 'Талғампаз мейрамхана',
+          traditional: 'Дәстүрлі тағамдар',
+          cafe: 'Тау кафесі',
+          bar: 'Après-Ski бары',
+          fastFood: 'Жылдам тағамдар',
+          panoramic: 'Панорамалық көріністі мейрамхана',
         },
       },
       checkout: {

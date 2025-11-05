@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
 
-interface NewsItem {
+interface HotelItem {
   key: string;
   image: string;
 }
 
-export default function NewsSection() {
+export default function HotelsSection() {
   const { t } = useTranslation();
 
-  const newsItems: NewsItem[] = [
-    { key: 'slopes', image: '🏔️' },
-    { key: 'equipment', image: '⛷️' },
-    { key: 'safety', image: '🦺' },
+  const hotelItems: HotelItem[] = [
+    { key: 'luxury', image: '✨' },
+    { key: 'cozy', image: '🏔️' },
+    { key: 'family', image: '👨‍👩‍👧‍👦' },
   ];
 
   return (
@@ -20,12 +20,12 @@ export default function NewsSection() {
         <div className="max-w-6xl mx-auto">
           {/* Section Title */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-8 sm:mb-12 text-center">
-            {t('newsSection.title')}
+            {t('hotelsSection.title')}
           </h2>
 
-          {/* News Grid */}
+          {/* Hotels Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {newsItems.map((item) => (
+            {hotelItems.map((item) => (
               <div
                 key={item.key}
                 className="group bg-white dark:bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
@@ -38,7 +38,7 @@ export default function NewsSection() {
                 {/* Title */}
                 <div className="p-4 sm:p-6">
                   <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground text-center">
-                    {t(`newsSection.items.${item.key}`)}
+                    {t(`hotelsSection.items.${item.key}`)}
                   </h3>
                 </div>
               </div>
