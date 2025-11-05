@@ -139,6 +139,99 @@ const resources = {
         followUs: 'Follow Us',
         rights: 'All rights reserved.',
       },
+      rent: {
+        title: 'Equipment Rental',
+        subtitle: 'Premium ski and snowboard equipment for all skill levels',
+        categories: {
+          ski: 'Ski Equipment',
+          snowboard: 'Snowboard Equipment',
+          clothing: 'Clothing & Accessories',
+        },
+        equipmentTypes: {
+          beginnerSki: {
+            name: 'Beginner Ski Set',
+            description: 'Perfect for those new to skiing',
+            includes: ['Skis', 'Boots', 'Poles', 'Helmet'],
+          },
+          advancedSki: {
+            name: 'Advanced Ski Set',
+            description: 'High-performance equipment for experienced skiers',
+            includes: ['Premium Skis', 'Boots', 'Poles', 'Helmet'],
+          },
+          beginnerSnowboard: {
+            name: 'Beginner Snowboard Set',
+            description: 'Ideal for first-time snowboarders',
+            includes: ['Snowboard', 'Boots', 'Helmet'],
+          },
+          advancedSnowboard: {
+            name: 'Advanced Snowboard Set',
+            description: 'Pro-grade gear for advanced riders',
+            includes: ['Premium Snowboard', 'Boots', 'Helmet'],
+          },
+          clothing: {
+            name: 'Clothing Package',
+            description: 'Stay warm and dry on the slopes',
+            includes: ['Jacket', 'Pants', 'Gloves', 'Goggles'],
+          },
+          accessories: {
+            name: 'Accessories',
+            description: 'Individual items available',
+            includes: ['Helmet', 'Goggles', 'Gloves', 'Backpack'],
+          },
+        },
+        pricing: {
+          beginnerSki: {
+            halfDay: '3,500',
+            fullDay: '5,000',
+            twoDays: '9,000',
+          },
+          advancedSki: {
+            halfDay: '5,000',
+            fullDay: '7,000',
+            twoDays: '12,000',
+          },
+          beginnerSnowboard: {
+            halfDay: '3,500',
+            fullDay: '5,000',
+            twoDays: '9,000',
+          },
+          advancedSnowboard: {
+            halfDay: '5,000',
+            fullDay: '7,000',
+            twoDays: '12,000',
+          },
+          clothing: {
+            halfDay: '2,000',
+            fullDay: '3,000',
+            twoDays: '5,000',
+          },
+          accessories: {
+            halfDay: '500',
+            fullDay: '1,000',
+            twoDays: '1,500',
+          },
+        },
+        rentalPeriods: {
+          halfDay: 'Half Day',
+          fullDay: 'Full Day',
+          twoDays: '2 Days',
+        },
+        currency: 'KZT',
+        rentNow: 'Rent Now',
+        popular: 'Popular',
+        includes: 'Includes',
+        importantInfo: {
+          title: 'Rental Information',
+          items: [
+            'All equipment is sanitized and inspected before each rental',
+            'Deposit required for all rentals (cash or card)',
+            'Early return does not qualify for refund',
+            'Equipment must be returned by closing time',
+            'Damage or loss fees apply for any damaged equipment',
+            'Free size adjustments during rental period',
+          ],
+        },
+      },
       tickets: {
         title: 'Ski Passes & Tickets',
         subtitle: 'Choose the perfect pass for your mountain adventure',
@@ -414,6 +507,99 @@ const resources = {
         followUs: 'Подписывайтесь',
         rights: 'Все права защищены.',
       },
+      rent: {
+        title: 'Прокат снаряжения',
+        subtitle: 'Премиальное лыжное и сноубордическое оборудование для всех уровней',
+        categories: {
+          ski: 'Лыжное снаряжение',
+          snowboard: 'Сноубордическое снаряжение',
+          clothing: 'Одежда и аксессуары',
+        },
+        equipmentTypes: {
+          beginnerSki: {
+            name: 'Лыжный комплект для начинающих',
+            description: 'Идеально для тех, кто только начинает кататься',
+            includes: ['Лыжи', 'Ботинки', 'Палки', 'Шлем'],
+          },
+          advancedSki: {
+            name: 'Продвинутый лыжный комплект',
+            description: 'Высокопроизводительное снаряжение для опытных лыжников',
+            includes: ['Премиум лыжи', 'Ботинки', 'Палки', 'Шлем'],
+          },
+          beginnerSnowboard: {
+            name: 'Сноуборд комплект для начинающих',
+            description: 'Идеально для первого опыта катания на сноуборде',
+            includes: ['Сноуборд', 'Ботинки', 'Шлем'],
+          },
+          advancedSnowboard: {
+            name: 'Продвинутый сноуборд комплект',
+            description: 'Профессиональное снаряжение для продвинутых райдеров',
+            includes: ['Премиум сноуборд', 'Ботинки', 'Шлем'],
+          },
+          clothing: {
+            name: 'Пакет одежды',
+            description: 'Оставайтесь в тепле и сухости на склонах',
+            includes: ['Куртка', 'Штаны', 'Перчатки', 'Маска'],
+          },
+          accessories: {
+            name: 'Аксессуары',
+            description: 'Отдельные предметы в наличии',
+            includes: ['Шлем', 'Маска', 'Перчатки', 'Рюкзак'],
+          },
+        },
+        pricing: {
+          beginnerSki: {
+            halfDay: '3 500',
+            fullDay: '5 000',
+            twoDays: '9 000',
+          },
+          advancedSki: {
+            halfDay: '5 000',
+            fullDay: '7 000',
+            twoDays: '12 000',
+          },
+          beginnerSnowboard: {
+            halfDay: '3 500',
+            fullDay: '5 000',
+            twoDays: '9 000',
+          },
+          advancedSnowboard: {
+            halfDay: '5 000',
+            fullDay: '7 000',
+            twoDays: '12 000',
+          },
+          clothing: {
+            halfDay: '2 000',
+            fullDay: '3 000',
+            twoDays: '5 000',
+          },
+          accessories: {
+            halfDay: '500',
+            fullDay: '1 000',
+            twoDays: '1 500',
+          },
+        },
+        rentalPeriods: {
+          halfDay: 'Полдня',
+          fullDay: 'Полный день',
+          twoDays: '2 дня',
+        },
+        currency: 'тг',
+        rentNow: 'Арендовать',
+        popular: 'Популярное',
+        includes: 'Включает',
+        importantInfo: {
+          title: 'Информация об аренде',
+          items: [
+            'Всё оборудование дезинфицируется и проверяется перед каждой арендой',
+            'Требуется залог для всех аренд (наличные или карта)',
+            'Досрочный возврат не дает права на возврат средств',
+            'Оборудование должно быть возвращено к закрытию',
+            'Штрафы за повреждение применяются к поврежденному оборудованию',
+            'Бесплатная подгонка размера в течение периода аренды',
+          ],
+        },
+      },
       tickets: {
         title: 'Ски-пассы и билеты',
         subtitle: 'Выберите идеальный пасс для вашего горного приключения',
@@ -688,6 +874,99 @@ const resources = {
         addressText: 'Шымбұлақ курорты, Алматы, Қазақстан',
         followUs: 'Бізді жазылыңыз',
         rights: 'Барлық құқықтар қорғалған.',
+      },
+      rent: {
+        title: 'Жабдық жалдау',
+        subtitle: 'Барлық деңгейлер үшін премиум шаңғы және сноуборд жабдықтары',
+        categories: {
+          ski: 'Шаңғы жабдықтары',
+          snowboard: 'Сноуборд жабдықтары',
+          clothing: 'Киім және аксессуарлар',
+        },
+        equipmentTypes: {
+          beginnerSki: {
+            name: 'Бастаушыларға арналған шаңғы жиынтығы',
+            description: 'Шаңғыны бастаушыларға тамаша',
+            includes: ['Шаңғылар', 'Етіктер', 'Таяқшалар', 'Дулыға'],
+          },
+          advancedSki: {
+            name: 'Жетілдірілген шаңғы жиынтығы',
+            description: 'Тәжірибелі шаңғышылар үшін жоғары өнімді жабдық',
+            includes: ['Премиум шаңғылар', 'Етіктер', 'Таяқшалар', 'Дулыға'],
+          },
+          beginnerSnowboard: {
+            name: 'Бастаушыларға арналған сноуборд жиынтығы',
+            description: 'Алғаш рет сноуборд тебушілерге',
+            includes: ['Сноуборд', 'Етіктер', 'Дулыға'],
+          },
+          advancedSnowboard: {
+            name: 'Жетілдірілген сноуборд жиынтығы',
+            description: 'Жетілдірілген райдерлерге арналған про деңгейдегі жабдық',
+            includes: ['Премиум сноуборд', 'Етіктер', 'Дулыға'],
+          },
+          clothing: {
+            name: 'Киім жинағы',
+            description: 'Трассаларда жылы және құрғақ болыңыз',
+            includes: ['Куртка', 'Шалбар', 'Қолғап', 'Көзілдірік'],
+          },
+          accessories: {
+            name: 'Аксессуарлар',
+            description: 'Жеке заттар қолжетімді',
+            includes: ['Дулыға', 'Көзілдірік', 'Қолғап', 'Рюкзак'],
+          },
+        },
+        pricing: {
+          beginnerSki: {
+            halfDay: '3 500',
+            fullDay: '5 000',
+            twoDays: '9 000',
+          },
+          advancedSki: {
+            halfDay: '5 000',
+            fullDay: '7 000',
+            twoDays: '12 000',
+          },
+          beginnerSnowboard: {
+            halfDay: '3 500',
+            fullDay: '5 000',
+            twoDays: '9 000',
+          },
+          advancedSnowboard: {
+            halfDay: '5 000',
+            fullDay: '7 000',
+            twoDays: '12 000',
+          },
+          clothing: {
+            halfDay: '2 000',
+            fullDay: '3 000',
+            twoDays: '5 000',
+          },
+          accessories: {
+            halfDay: '500',
+            fullDay: '1 000',
+            twoDays: '1 500',
+          },
+        },
+        rentalPeriods: {
+          halfDay: 'Жарты күн',
+          fullDay: 'Толық күн',
+          twoDays: '2 күн',
+        },
+        currency: 'тг',
+        rentNow: 'Жалдау',
+        popular: 'Танымал',
+        includes: 'Кіреді',
+        importantInfo: {
+          title: 'Жалдау туралы ақпарат',
+          items: [
+            'Барлық жабдықтар әр жалдаудан бұрын дезинфекцияланады және тексеріледі',
+            'Барлық жалдаулар үшін кепілдік қажет (қолма-қол немесе карта)',
+            'Ерте қайтару ақшаны қайтаруға құқық бермейді',
+            'Жабдықты жабылғанға дейін қайтару керек',
+            'Зақымдалған жабдыққа айыппұл салынады',
+            'Жалдау кезеңінде өлшемді тегін реттеу',
+          ],
+        },
       },
       tickets: {
         title: 'Шаңғы билеттері',

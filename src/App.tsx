@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Home from '@/pages/Home';
 import Tickets from '@/pages/Tickets';
+import Rent from '@/pages/Rent';
 import Checkout from '@/pages/Checkout';
 import Success from '@/pages/Success';
 import Failed from '@/pages/Failed';
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tickets" element={<Tickets />} />
+        <Route path="/rent" element={<Rent />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success" element={<Success />} />
         <Route path="/failed" element={<Failed />} />
