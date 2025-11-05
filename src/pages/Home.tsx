@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import NewsCarousel from '@/components/NewsCarousel';
+import CategoryMenu from '@/components/CategoryMenu';
 import { useTranslation } from 'react-i18next';
 
 export default function Home() {
@@ -11,6 +12,9 @@ export default function Home() {
     <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* News Carousel */}
       <NewsCarousel />
+
+      {/* Category Menu */}
+      <CategoryMenu />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
