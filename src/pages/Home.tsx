@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import NewsCarousel from '@/components/NewsCarousel';
 import CategoryMenu from '@/components/CategoryMenu';
+import NewsSection from '@/components/NewsSection';
+import EntertainmentsSection from '@/components/EntertainmentsSection';
 import { useTranslation } from 'react-i18next';
 
 export default function Home() {
@@ -15,6 +17,12 @@ export default function Home() {
 
       {/* Category Menu */}
       <CategoryMenu />
+
+      {/* News Section */}
+      <NewsSection />
+
+      {/* Entertainments Section */}
+      <EntertainmentsSection />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">

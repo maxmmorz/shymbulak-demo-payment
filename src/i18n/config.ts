@@ -77,6 +77,28 @@ const resources = {
         kids: 'Kids',
         forBusiness: 'For Business',
       },
+      newsSection: {
+        title: 'News',
+        items: {
+          slopes: 'New Slopes Opening',
+          equipment: 'Latest Equipment Available',
+          safety: 'Safety Guidelines Update',
+          competition: 'Winter Sports Competition',
+          maintenance: 'Lift Maintenance Schedule',
+          weather: 'Weekly Weather Forecast',
+        },
+      },
+      entertainmentsSection: {
+        title: 'Entertainments',
+        items: {
+          nightSkiing: 'Night Skiing',
+          spa: 'Mountain Spa & Wellness',
+          tours: 'Guided Mountain Tours',
+          photography: 'Photography Sessions',
+          paragliding: 'Paragliding Adventures',
+          snowmobile: 'Snowmobile Excursions',
+        },
+      },
       checkout: {
         title: 'Complete Purchase',
         subtitle: 'Secure ski pass checkout',
@@ -215,6 +237,28 @@ const resources = {
         kids: 'Дети',
         forBusiness: 'Для бизнеса',
       },
+      newsSection: {
+        title: 'Новости',
+        items: {
+          slopes: 'Открытие новых трасс',
+          equipment: 'Новое оборудование',
+          safety: 'Обновление правил безопасности',
+          competition: 'Зимние соревнования',
+          maintenance: 'График обслуживания подъемников',
+          weather: 'Прогноз погоды на неделю',
+        },
+      },
+      entertainmentsSection: {
+        title: 'Развлечения',
+        items: {
+          nightSkiing: 'Ночное катание',
+          spa: 'Горный спа и wellness',
+          tours: 'Экскурсии с гидом',
+          photography: 'Фотосессии',
+          paragliding: 'Параглайдинг',
+          snowmobile: 'Поездки на снегоходах',
+        },
+      },
       checkout: {
         title: 'Завершение покупки',
         subtitle: 'Безопасная оплата ски-пасса',
@@ -352,6 +396,28 @@ const resources = {
         events: 'Оқиғалар',
         kids: 'Балалар',
         forBusiness: 'Бизнеске',
+      },
+      newsSection: {
+        title: 'Жаңалықтар',
+        items: {
+          slopes: 'Жаңа трассалардың ашылуы',
+          equipment: 'Жаңа жабдық қолжетімді',
+          safety: 'Қауіпсіздік ережелерінің жаңартылуы',
+          competition: 'Қысқы спорт жарыстары',
+          maintenance: 'Көтергіш қызметінің кестесі',
+          weather: 'Апталық ауа райы болжамы',
+        },
+      },
+      entertainmentsSection: {
+        title: 'Ойын-сауық',
+        items: {
+          nightSkiing: 'Түнгі сырғанау',
+          spa: 'Тау спа және wellness',
+          tours: 'Гидпен саяхаттар',
+          photography: 'Фотосессиялар',
+          paragliding: 'Параглайдинг',
+          snowmobile: 'Қар мотоциклдерімен саяхат',
+        },
       },
       checkout: {
         title: 'Сатып алуды аяқтау',
