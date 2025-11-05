@@ -51,6 +51,14 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        ski: {
+          blue: "#0EA5E9",
+          ice: "#7DD3FC",
+          snow: "#F0F9FF",
+          mountain: "#64748B",
+          sunset: "#F97316",
+          pine: "#10B981",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
