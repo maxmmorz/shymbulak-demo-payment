@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import Home from '@/pages/Home';
 import Checkout from '@/pages/Checkout';
 import Success from '@/pages/Success';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/failed" element={<Failed />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </>
   );
 }
