@@ -88,8 +88,8 @@ export default function Checkout() {
                 </div>
 
                 {/* Digital Wallet Section */}
-                <div className="mb-5">
-                  <h2 className="text-sm font-bold text-muted-foreground mb-3 uppercase tracking-wider flex items-center gap-2">
+                <div className="mb-6">
+                  <h2 className="text-sm font-bold text-muted-foreground mb-4 uppercase tracking-wider flex items-center gap-2">
                     <svg className="w-5 h-5 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
                     </svg>
@@ -99,29 +99,29 @@ export default function Checkout() {
                     {/* Apple Pay */}
                     <button
                       onClick={() => handlePayment(true)}
-                      className="flex items-center justify-center gap-3 bg-black hover:bg-gray-900 text-white rounded-2xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
+                      className="flex items-center justify-center gap-2 bg-black hover:bg-gray-900 text-white rounded-2xl p-3 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
                     >
-                      <svg className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="w-7 h-7 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
                       </svg>
-                      <span className="font-bold text-lg">{t('checkout.applePay')}</span>
+                      <span className="font-bold text-base">{t('checkout.applePay')}</span>
                     </button>
 
                     {/* Google Pay */}
                     <button
                       onClick={() => handlePayment(true)}
-                      className="flex items-center justify-center gap-3 bg-white hover:bg-gray-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-black dark:text-white border-2 border-gray-200 dark:border-slate-600 rounded-2xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
+                      className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-black dark:text-white border-2 border-gray-200 dark:border-slate-600 rounded-2xl p-3 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
                     >
-                      <svg className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                      <svg className="w-7 h-7 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
                         <path fill="#4285F4" d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
                       </svg>
-                      <span className="font-bold text-lg">{t('checkout.googlePay')}</span>
+                      <span className="font-bold text-base">{t('checkout.googlePay')}</span>
                     </button>
                   </div>
                 </div>
 
                 {/* Divider */}
-                <div className="relative my-5">
+                <div className="relative my-6">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t-2 border-border"></div>
                   </div>
@@ -131,11 +131,11 @@ export default function Checkout() {
                 </div>
 
                 {/* Card Payment Section */}
-                <div className="space-y-4 mb-5">
+                <div className="space-y-4 mb-6">
                   {!showNewCardForm ? (
                     <>
                       <div>
-                        <h2 className="text-sm font-bold text-muted-foreground mb-3 uppercase tracking-wider flex items-center gap-2">
+                        <h2 className="text-sm font-bold text-muted-foreground mb-4 uppercase tracking-wider flex items-center gap-2">
                           <svg className="w-5 h-5 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
                             <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd"/>
@@ -206,7 +206,7 @@ export default function Checkout() {
                     <>
                       {/* New Card Form */}
                       <div>
-                        <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center justify-between mb-4">
                           <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
                             <svg className="w-5 h-5 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
@@ -224,9 +224,9 @@ export default function Checkout() {
                             {t('checkout.useSavedCard')}
                           </button>
                         </div>
-                        <div className="space-y-3">
+                        <div className="space-y-4">
                           <div className="group">
-                            <label className="block text-sm font-bold text-foreground mb-1.5">
+                            <label className="block text-sm font-bold text-foreground mb-2">
                               {t('checkout.cardNumber')}
                             </label>
                             <input
@@ -243,23 +243,9 @@ export default function Checkout() {
                               className="w-full px-4 py-2.5 rounded-xl border-2 border-border bg-background text-foreground focus:outline-none focus:ring-4 focus:ring-ski-blue/20 focus:border-ski-blue transition-all duration-200 shadow-sm hover:shadow-md"
                             />
                           </div>
-                          <div className="group">
-                            <label className="block text-sm font-bold text-foreground mb-1.5">
-                              {t('checkout.cardHolder')}
-                            </label>
-                            <input
-                              type="text"
-                              placeholder="JOHN DOE"
-                              value={newCardData.cardHolder}
-                              onChange={(e) =>
-                                setNewCardData({ ...newCardData, cardHolder: e.target.value.toUpperCase() })
-                              }
-                              className="w-full px-4 py-2.5 rounded-xl border-2 border-border bg-background text-foreground focus:outline-none focus:ring-4 focus:ring-ski-blue/20 focus:border-ski-blue transition-all duration-200 shadow-sm hover:shadow-md"
-                            />
-                          </div>
-                          <div className="grid grid-cols-2 gap-3">
+                          <div className="grid grid-cols-2 gap-4">
                             <div className="group">
-                              <label className="block text-sm font-bold text-foreground mb-1.5">
+                              <label className="block text-sm font-bold text-foreground mb-2">
                                 {t('checkout.expiryDate')}
                               </label>
                               <input
@@ -277,7 +263,7 @@ export default function Checkout() {
                               />
                             </div>
                             <div className="group">
-                              <label className="block text-sm font-bold text-foreground mb-1.5">
+                              <label className="block text-sm font-bold text-foreground mb-2">
                                 {t('checkout.cvv')}
                               </label>
                               <input
@@ -295,25 +281,38 @@ export default function Checkout() {
                               />
                             </div>
                           </div>
+                          <div className="group">
+                            <label className="block text-sm font-bold text-foreground mb-2">
+                              {t('checkout.cardHolder')}
+                            </label>
+                            <input
+                              type="text"
+                              placeholder="JOHN DOE"
+                              value={newCardData.cardHolder}
+                              onChange={(e) =>
+                                setNewCardData({ ...newCardData, cardHolder: e.target.value.toUpperCase() })
+                              }
+                              className="w-full px-4 py-2.5 rounded-xl border-2 border-border bg-background text-foreground focus:outline-none focus:ring-4 focus:ring-ski-blue/20 focus:border-ski-blue transition-all duration-200 shadow-sm hover:shadow-md"
+                            />
+                          </div>
 
                           {/* Save Card Toggle */}
-                          <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors">
+                          <div className="flex items-center gap-2 p-2 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
                             <button
                               type="button"
                               onClick={() => setSaveCard(!saveCard)}
-                              className={`relative w-11 h-6 rounded-full transition-colors duration-200 ${
+                              className={`relative w-9 h-5 rounded-full transition-colors duration-200 flex-shrink-0 ${
                                 saveCard ? 'bg-ski-blue' : 'bg-border'
                               }`}
                             >
                               <span
-                                className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-transform duration-200 ${
-                                  saveCard ? 'translate-x-5' : 'translate-x-0'
+                                className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow-md transition-transform duration-200 ${
+                                  saveCard ? 'translate-x-4' : 'translate-x-0'
                                 }`}
                               />
                             </button>
                             <div className="flex-1">
-                              <div className="text-sm font-bold text-foreground">Save card for future use</div>
-                              <div className="text-xs text-muted-foreground">Securely save this card to your account</div>
+                              <div className="text-xs font-semibold text-foreground">Save card for future use</div>
                             </div>
                           </div>
                         </div>
@@ -323,7 +322,7 @@ export default function Checkout() {
                 </div>
 
                 {/* Divider */}
-                <div className="relative my-5">
+                <div className="relative my-6">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t-2 border-border"></div>
                   </div>
@@ -334,7 +333,7 @@ export default function Checkout() {
 
                 {/* QR Payment Section */}
                 <div>
-                  <h2 className="text-sm font-bold text-muted-foreground mb-3 uppercase tracking-wider flex items-center gap-2">
+                  <h2 className="text-sm font-bold text-muted-foreground mb-4 uppercase tracking-wider flex items-center gap-2">
                     <svg className="w-5 h-5 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 3a1 1 0 00-1 1v3a1 1 0 001 1h3a1 1 0 001-1V4a1 1 0 00-1-1h-3zm1 2v1h1V5h-1z" clipRule="evenodd"/>
                       <path d="M11 4a1 1 0 10-2 0v1a1 1 0 002 0V4zM10 7a1 1 0 011 1v1h2a1 1 0 110 2h-3a1 1 0 01-1-1V8a1 1 0 011-1zM16 9a1 1 0 100 2 1 1 0 000-2zM9 13a1 1 0 011-1h1a1 1 0 110 2v2a1 1 0 11-2 0v-3zM7 11a1 1 0 100-2H4a1 1 0 100 2h3zM17 13a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zM16 17a1 1 0 100-2h-3a1 1 0 100 2h3z"/>
@@ -443,15 +442,6 @@ export default function Checkout() {
                   >
                     {t('checkout.cancel')}
                   </Button>
-                </div>
-
-                <div className="mt-4 pt-4 border-t-2 border-border">
-                  <div className="flex items-start gap-2.5 p-2.5 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
-                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-xs text-green-800 dark:text-green-300 font-medium">{t('checkout.securityNotice')}</span>
-                  </div>
                 </div>
               </div>
             </div>
