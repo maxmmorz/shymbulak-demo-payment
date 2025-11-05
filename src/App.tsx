@@ -1,6 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { PageTransition } from '@/components/animations';
 import Home from '@/pages/Home';
 import Tickets from '@/pages/Tickets';
 import SkiPassForm from '@/pages/SkiPassForm';
@@ -18,26 +20,30 @@ import Failed from '@/pages/Failed';
 import NotFound from '@/pages/NotFound';
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tickets" element={<Tickets />} />
-        <Route path="/ski-pass-form" element={<SkiPassForm />} />
-        <Route path="/rent" element={<Rent />} />
-        <Route path="/school" element={<School />} />
-        <Route path="/entertainment" element={<Entertainment />} />
-        <Route path="/hotels" element={<Hotels />} />
-        <Route path="/restaurants" element={<Restaurants />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/kids" element={<Kids />} />
-        <Route path="/for-business" element={<ForBusiness />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/success" element={<Success />} />
-        <Route path="/failed" element={<Failed />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/tickets" element={<PageTransition><Tickets /></PageTransition>} />
+          <Route path="/ski-pass-form" element={<PageTransition><SkiPassForm /></PageTransition>} />
+          <Route path="/rent" element={<PageTransition><Rent /></PageTransition>} />
+          <Route path="/school" element={<PageTransition><School /></PageTransition>} />
+          <Route path="/entertainment" element={<PageTransition><Entertainment /></PageTransition>} />
+          <Route path="/hotels" element={<PageTransition><Hotels /></PageTransition>} />
+          <Route path="/restaurants" element={<PageTransition><Restaurants /></PageTransition>} />
+          <Route path="/events" element={<PageTransition><Events /></PageTransition>} />
+          <Route path="/kids" element={<PageTransition><Kids /></PageTransition>} />
+          <Route path="/for-business" element={<PageTransition><ForBusiness /></PageTransition>} />
+          <Route path="/checkout" element={<PageTransition><Checkout /></PageTransition>} />
+          <Route path="/success" element={<PageTransition><Success /></PageTransition>} />
+          <Route path="/failed" element={<PageTransition><Failed /></PageTransition>} />
+          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
     </>
   );

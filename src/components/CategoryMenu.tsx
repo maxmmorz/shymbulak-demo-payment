@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { StaggerContainer, StaggerItem } from '@/components/animations';
+import { motion } from 'framer-motion';
 
 interface CategoryItem {
   key: string;
@@ -100,22 +102,31 @@ export default function CategoryMenu() {
     <div className="bg-white dark:bg-slate-900 py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-3 sm:px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-3 sm:gap-4 md:gap-6">
+          <StaggerContainer
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-3 sm:gap-4 md:gap-6"
+            staggerDelay={0.08}
+          >
             {categories.map((category) => (
-              <button
-                key={category.key}
-                onClick={() => category.link && navigate(category.link)}
-                className="group flex flex-col items-center gap-2 p-2 sm:p-3 rounded-xl hover:bg-ski-blue/5 dark:hover:bg-ski-blue/10 transition-all duration-300"
-              >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-br from-ski-blue/10 to-ski-ice/20 dark:from-ski-blue/20 dark:to-ski-ice/30 rounded-xl flex items-center justify-center text-ski-blue group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 p-2">
-                  {category.icon}
-                </div>
-                <span className="text-xs sm:text-sm font-medium text-foreground text-center leading-tight">
-                  {t(`categoryMenu.${category.key}`)}
-                </span>
-              </button>
+              <StaggerItem key={category.key}>
+                <motion.button
+                  onClick={() => category.link && navigate(category.link)}
+                  className="group flex flex-col items-center gap-2 p-2 sm:p-3 rounded-xl hover:bg-ski-blue/5 dark:hover:bg-ski-blue/10 transition-all duration-300 w-full"
+                  whileHover={{ y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <motion.div
+                    className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-br from-ski-blue/10 to-ski-ice/20 dark:from-ski-blue/20 dark:to-ski-ice/30 rounded-xl flex items-center justify-center text-ski-blue transition-all duration-300 p-2"
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                  >
+                    {category.icon}
+                  </motion.div>
+                  <span className="text-xs sm:text-sm font-medium text-foreground text-center leading-tight">
+                    {t(`categoryMenu.${category.key}`)}
+                  </span>
+                </motion.button>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </div>

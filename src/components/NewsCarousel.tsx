@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface NewsItem {
   id: number;
@@ -93,67 +94,117 @@ export default function NewsCarousel() {
         >
           {/* Carousel Content */}
           <div className="py-16 sm:py-20 md:py-24 lg:py-32">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10 max-w-4xl mx-auto">
-              {/* Icon/Image */}
-              <div className="flex-shrink-0">
-                <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-xl">
-                  <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem]">{currentNews.image}</span>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className="flex flex-col md:flex-row items-center gap-8 md:gap-10 max-w-4xl mx-auto"
+              >
+                {/* Icon/Image */}
+                <motion.div
+                  className="flex-shrink-0"
+                  initial={{ scale: 0.8, rotate: -10 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                >
+                  <motion.div
+                    className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-xl"
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem]">{currentNews.image}</span>
+                  </motion.div>
+                </motion.div>
+
+                {/* Content */}
+                <div className="flex-1 text-center md:text-left">
+                  <motion.div
+                    className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-4 sm:mb-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <span className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-sm sm:text-base font-semibold text-white">
+                      {t(currentNews.categoryKey)}
+                    </span>
+                    <span className="text-sm sm:text-base text-blue-100">{currentNews.date}</span>
+                  </motion.div>
+
+                  <motion.h2
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    {t(currentNews.titleKey)}
+                  </motion.h2>
+
+                  <motion.p
+                    className="text-lg sm:text-xl md:text-2xl text-blue-50 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                  >
+                    {t(currentNews.descriptionKey)}
+                  </motion.p>
+
+                  <motion.button
+                    className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-white text-primary hover:bg-blue-50 rounded-xl font-bold text-base sm:text-lg transition-colors shadow-lg hover:shadow-xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    whileHover={{ scale: 1.05, x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {t('news.readMore')}
+                    <motion.svg
+                      className="w-5 h-5 sm:w-6 sm:h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      whileHover={{ x: 5 }}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </motion.svg>
+                  </motion.button>
                 </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-4 sm:mb-6">
-                  <span className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-sm sm:text-base font-semibold text-white">
-                    {t(currentNews.categoryKey)}
-                  </span>
-                  <span className="text-sm sm:text-base text-blue-100">{currentNews.date}</span>
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
-                  {t(currentNews.titleKey)}
-                </h2>
-
-                <p className="text-lg sm:text-xl md:text-2xl text-blue-50 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
-                  {t(currentNews.descriptionKey)}
-                </p>
-
-                <button className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-white text-primary hover:bg-blue-50 rounded-xl font-bold text-base sm:text-lg transition-colors shadow-lg hover:shadow-xl">
-                  {t('news.readMore')}
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Navigation Arrows */}
-          <button
+          <motion.button
             onClick={goToPrevious}
             className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-colors"
             aria-label="Previous slide"
+            whileHover={{ scale: 1.1, x: -5 }}
+            whileTap={{ scale: 0.9 }}
           >
             <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
             onClick={goToNext}
             className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-colors"
             aria-label="Next slide"
+            whileHover={{ scale: 1.1, x: 5 }}
+            whileTap={{ scale: 0.9 }}
           >
             <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </motion.button>
         </div>
 
         {/* Dots Indicator */}
         <div className="flex items-center justify-center gap-2 sm:gap-3 pb-8 sm:pb-10 md:pb-12">
           {newsItemsData.map((_, index) => (
-            <button
+            <motion.button
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all ${
@@ -162,6 +213,9 @@ export default function NewsCarousel() {
                   : 'w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white/40 hover:bg-white/60 rounded-full'
               }`}
               aria-label={`Go to slide ${index + 1}`}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              animate={{ scale: index === currentIndex ? 1 : 1 }}
             />
           ))}
         </div>

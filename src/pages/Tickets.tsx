@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
+import { FadeIn, StaggerContainer, StaggerItem, ScaleOnHover } from '@/components/animations';
+import { motion } from 'framer-motion';
 
 export default function Tickets() {
   const { t } = useTranslation();
@@ -15,19 +17,29 @@ export default function Tickets() {
       <div className="bg-gradient-to-r from-ski-blue via-primary to-ski-ice py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                <svg className="w-10 h-10 sm:w-12 sm:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
-                </svg>
+            <FadeIn delay={0.1} direction="up">
+              <div className="mb-6 flex justify-center">
+                <motion.div
+                  className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <svg className="w-10 h-10 sm:w-12 sm:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                  </svg>
+                </motion.div>
               </div>
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
-              {t('tickets.title')}
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
-              {t('tickets.subtitle')}
-            </p>
+            </FadeIn>
+            <FadeIn delay={0.2} direction="up">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
+                {t('tickets.title')}
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.3} direction="up">
+              <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
+                {t('tickets.subtitle')}
+              </p>
+            </FadeIn>
           </div>
         </div>
       </div>
@@ -35,14 +47,18 @@ export default function Tickets() {
       {/* Ticket Cards */}
       <div className="container mx-auto px-3 sm:px-4 py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
+          <StaggerContainer
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20"
+            staggerDelay={0.15}
+          >
             {ticketTypes.map((ticketType) => (
-              <div
-                key={ticketType}
-                className={`relative bg-white dark:bg-card rounded-3xl shadow-xl overflow-hidden ${
-                  ticketType === 'fullDay' ? 'ring-4 ring-ski-blue md:scale-105' : ''
-                }`}
-              >
+              <StaggerItem key={ticketType}>
+                <ScaleOnHover scale={1.02}>
+                  <div
+                    className={`relative bg-white dark:bg-card rounded-3xl shadow-xl overflow-hidden h-full ${
+                      ticketType === 'fullDay' ? 'ring-4 ring-ski-blue md:scale-105' : ''
+                    }`}
+                  >
                 {/* Popular Badge */}
                 {ticketType === 'fullDay' && (
                   <div className="absolute top-0 right-0 bg-ski-blue text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
@@ -99,59 +115,68 @@ export default function Tickets() {
                     ))}
                   </div>
 
-                  {/* Buy Button */}
-                  <Button
-                    onClick={() => navigate('/ski-pass-form', {
-                      state: {
-                        ticketType: ticketType,
-                        category: 'adult'
-                      }
-                    })}
-                    className={`w-full mt-6 min-h-[48px] font-bold text-base ${
-                      ticketType === 'fullDay'
-                        ? 'bg-ski-blue hover:bg-ski-blue/90'
-                        : 'bg-primary hover:bg-primary/90'
-                    }`}
-                  >
-                    {t('tickets.buyNow')}
-                  </Button>
+                    {/* Buy Button */}
+                    <Button
+                      onClick={() => navigate('/ski-pass-form', {
+                        state: {
+                          ticketType: ticketType,
+                          category: 'adult'
+                        }
+                      })}
+                      className={`w-full mt-6 min-h-[48px] font-bold text-base ${
+                        ticketType === 'fullDay'
+                          ? 'bg-ski-blue hover:bg-ski-blue/90'
+                          : 'bg-primary hover:bg-primary/90'
+                      }`}
+                    >
+                      {t('tickets.buyNow')}
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </ScaleOnHover>
+            </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* Additional Services */}
           <div className="mb-16 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-8 sm:mb-12 text-center">
-              {t('tickets.additionalServices.title')}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <FadeIn delay={0.1} direction="up">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-8 sm:mb-12 text-center">
+                {t('tickets.additionalServices.title')}
+              </h2>
+            </FadeIn>
+            <StaggerContainer
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              staggerDelay={0.15}
+            >
               {(['equipment', 'instructor', 'locker'] as const).map((service) => (
-                <div
-                  key={service}
-                  className="bg-white dark:bg-card rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow"
-                >
+                <StaggerItem key={service}>
+                  <ScaleOnHover scale={1.02}>
+                    <div className="bg-white dark:bg-card rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow h-full">
                   <h3 className="text-xl font-bold text-foreground mb-2">
                     {t(`tickets.additionalServices.${service}.name`)}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-4">
                     {t(`tickets.additionalServices.${service}.description`)}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <span className="text-2xl font-extrabold text-ski-blue">
-                      {t(`tickets.additionalServices.${service}.price`)} {t('tickets.currency')}
-                    </span>
-                    <Button onClick={() => navigate('/checkout')} variant="outline" size="sm">
-                      {t('tickets.buyNow')}
-                    </Button>
-                  </div>
-                </div>
+                      <div className="flex items-center justify-between pt-4 border-t border-border">
+                        <span className="text-2xl font-extrabold text-ski-blue">
+                          {t(`tickets.additionalServices.${service}.price`)} {t('tickets.currency')}
+                        </span>
+                        <Button onClick={() => navigate('/checkout')} variant="outline" size="sm">
+                          {t('tickets.buyNow')}
+                        </Button>
+                      </div>
+                    </div>
+                  </ScaleOnHover>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
 
           {/* Important Information */}
-          <div className="bg-blue-50 dark:bg-slate-800 rounded-2xl p-6 sm:p-8 md:p-10">
+          <FadeIn delay={0.2} direction="up">
+            <div className="bg-blue-50 dark:bg-slate-800 rounded-2xl p-6 sm:p-8 md:p-10">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-ski-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
                 <svg className="w-6 h-6 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
@@ -174,7 +199,8 @@ export default function Tickets() {
                 </li>
               ))}
             </ul>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </div>

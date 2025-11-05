@@ -5,6 +5,7 @@ import EntertainmentsSection from '@/components/EntertainmentsSection';
 import HotelsSection from '@/components/HotelsSection';
 import RestaurantsSection from '@/components/RestaurantsSection';
 import MobileAppSection from '@/components/MobileAppSection';
+import { FadeIn } from '@/components/animations';
 
 export default function Home() {
   return (
@@ -13,22 +14,34 @@ export default function Home() {
       <NewsCarousel />
 
       {/* Category Menu */}
-      <CategoryMenu />
+      <FadeIn delay={0.2} direction="up">
+        <CategoryMenu />
+      </FadeIn>
 
       {/* News Section */}
-      <NewsSection />
+      <FadeIn delay={0.1} direction="up">
+        <NewsSection />
+      </FadeIn>
 
       {/* Entertainments Section */}
-      <EntertainmentsSection />
+      <FadeIn delay={0.1} direction="up">
+        <EntertainmentsSection />
+      </FadeIn>
 
       {/* Hotels Section */}
-      <HotelsSection />
+      <FadeIn delay={0.1} direction="up">
+        <HotelsSection />
+      </FadeIn>
 
       {/* Restaurants Section */}
-      <RestaurantsSection />
+      <FadeIn delay={0.1} direction="up">
+        <RestaurantsSection />
+      </FadeIn>
 
       {/* Mobile App Section */}
-      <MobileAppSection />
+      <FadeIn delay={0.1} direction="up">
+        <MobileAppSection />
+      </FadeIn>
     </>
   );
 }
