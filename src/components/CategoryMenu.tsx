@@ -1,16 +1,20 @@
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 interface CategoryItem {
   key: string;
   icon: JSX.Element;
+  link?: string;
 }
 
 export default function CategoryMenu() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const categories: CategoryItem[] = [
     {
       key: 'tickets',
+      link: '/tickets',
       icon: (
         <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
@@ -92,6 +96,7 @@ export default function CategoryMenu() {
             {categories.map((category) => (
               <button
                 key={category.key}
+                onClick={() => category.link && navigate(category.link)}
                 className="group flex flex-col items-center gap-2 p-2 sm:p-3 rounded-xl hover:bg-ski-blue/5 dark:hover:bg-ski-blue/10 transition-all duration-300"
               >
                 <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-br from-ski-blue/10 to-ski-ice/20 dark:from-ski-blue/20 dark:to-ski-ice/30 rounded-xl flex items-center justify-center text-ski-blue group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 p-2">

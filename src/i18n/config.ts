@@ -139,6 +139,81 @@ const resources = {
         followUs: 'Follow Us',
         rights: 'All rights reserved.',
       },
+      tickets: {
+        title: 'Ski Passes & Tickets',
+        subtitle: 'Choose the perfect pass for your mountain adventure',
+        categories: {
+          adult: 'Adult',
+          child: 'Child (6-12 years)',
+          senior: 'Senior (60+ years)',
+        },
+        ticketTypes: {
+          fullDay: {
+            name: 'Full Day Pass',
+            description: 'Access to all slopes from 9:00 AM to 5:00 PM',
+            features: ['All lifts included', 'Full day access', 'Weekend & holidays'],
+          },
+          halfDay: {
+            name: 'Half Day Pass',
+            description: 'Access to all slopes from 1:00 PM to 5:00 PM',
+            features: ['All lifts included', 'Afternoon skiing', 'Great for beginners'],
+          },
+          season: {
+            name: 'Season Pass',
+            description: 'Unlimited access for the entire winter season',
+            features: ['Unlimited visits', 'Priority lift access', 'Special discounts', 'Valid Nov-Apr'],
+          },
+        },
+        pricing: {
+          fullDay: {
+            adult: '12,000',
+            child: '8,000',
+            senior: '9,000',
+          },
+          halfDay: {
+            adult: '8,000',
+            child: '5,000',
+            senior: '6,000',
+          },
+          season: {
+            adult: '180,000',
+            child: '120,000',
+            senior: '140,000',
+          },
+        },
+        currency: 'KZT',
+        buyNow: 'Buy Now',
+        popular: 'Most Popular',
+        bestValue: 'Best Value',
+        additionalServices: {
+          title: 'Additional Services',
+          equipment: {
+            name: 'Equipment Rental',
+            description: 'Full set of ski or snowboard equipment',
+            price: '5,000',
+          },
+          instructor: {
+            name: 'Private Instructor',
+            description: 'One-on-one lesson with certified instructor (2 hours)',
+            price: '15,000',
+          },
+          locker: {
+            name: 'Storage Locker',
+            description: 'Secure locker for your belongings',
+            price: '1,000',
+          },
+        },
+        importantInfo: {
+          title: 'Important Information',
+          items: [
+            'Children under 6 years old ski for free',
+            'Valid ID required for senior and child tickets',
+            'Season passes are non-transferable',
+            'Tickets are non-refundable once purchased',
+            'Weather-related closures may occur for safety',
+          ],
+        },
+      },
       checkout: {
         title: 'Complete Purchase',
         subtitle: 'Secure ski pass checkout',
@@ -339,6 +414,81 @@ const resources = {
         followUs: 'Подписывайтесь',
         rights: 'Все права защищены.',
       },
+      tickets: {
+        title: 'Ски-пассы и билеты',
+        subtitle: 'Выберите идеальный пасс для вашего горного приключения',
+        categories: {
+          adult: 'Взрослый',
+          child: 'Ребёнок (6-12 лет)',
+          senior: 'Пенсионер (60+ лет)',
+        },
+        ticketTypes: {
+          fullDay: {
+            name: 'Билет на весь день',
+            description: 'Доступ ко всем трассам с 9:00 до 17:00',
+            features: ['Все подъёмники включены', 'Полный день катания', 'Выходные и праздники'],
+          },
+          halfDay: {
+            name: 'Билет на полдня',
+            description: 'Доступ ко всем трассам с 13:00 до 17:00',
+            features: ['Все подъёмники включены', 'Дневное катание', 'Отлично для новичков'],
+          },
+          season: {
+            name: 'Сезонный абонемент',
+            description: 'Неограниченный доступ на весь зимний сезон',
+            features: ['Неограниченные посещения', 'Приоритетный доступ к подъёмникам', 'Специальные скидки', 'Действует ноя-апр'],
+          },
+        },
+        pricing: {
+          fullDay: {
+            adult: '12 000',
+            child: '8 000',
+            senior: '9 000',
+          },
+          halfDay: {
+            adult: '8 000',
+            child: '5 000',
+            senior: '6 000',
+          },
+          season: {
+            adult: '180 000',
+            child: '120 000',
+            senior: '140 000',
+          },
+        },
+        currency: 'тг',
+        buyNow: 'Купить сейчас',
+        popular: 'Самый популярный',
+        bestValue: 'Выгодное предложение',
+        additionalServices: {
+          title: 'Дополнительные услуги',
+          equipment: {
+            name: 'Прокат оборудования',
+            description: 'Полный комплект лыжного или сноубордического снаряжения',
+            price: '5 000',
+          },
+          instructor: {
+            name: 'Частный инструктор',
+            description: 'Индивидуальный урок с сертифицированным инструктором (2 часа)',
+            price: '15 000',
+          },
+          locker: {
+            name: 'Камера хранения',
+            description: 'Безопасный шкафчик для ваших вещей',
+            price: '1 000',
+          },
+        },
+        importantInfo: {
+          title: 'Важная информация',
+          items: [
+            'Дети до 6 лет катаются бесплатно',
+            'Требуется действительное удостоверение личности для льготных билетов',
+            'Сезонные абонементы не подлежат передаче',
+            'Билеты возврату не подлежат после покупки',
+            'Возможны закрытия трасс из соображений безопасности',
+          ],
+        },
+      },
       checkout: {
         title: 'Завершение покупки',
         subtitle: 'Безопасная оплата ски-пасса',
@@ -538,6 +688,81 @@ const resources = {
         addressText: 'Шымбұлақ курорты, Алматы, Қазақстан',
         followUs: 'Бізді жазылыңыз',
         rights: 'Барлық құқықтар қорғалған.',
+      },
+      tickets: {
+        title: 'Шаңғы билеттері',
+        subtitle: 'Тау саяхатыңызға тамаша билетті таңдаңыз',
+        categories: {
+          adult: 'Ересек',
+          child: 'Бала (6-12 жас)',
+          senior: 'Зейнеткер (60+ жас)',
+        },
+        ticketTypes: {
+          fullDay: {
+            name: 'Күнделікті билет',
+            description: 'Барлық трассаларға таңғы 9:00-дан 17:00-ге дейін қолжетімді',
+            features: ['Барлық көтергіштер кіреді', 'Толық күндік қолжетімді', 'Демалыс күндері'],
+          },
+          halfDay: {
+            name: 'Жарты күндік билет',
+            description: 'Барлық трассаларға түстен кейін 13:00-ден 17:00-ге дейін қолжетімді',
+            features: ['Барлық көтергіштер кіреді', 'Түстен кейінгі сырғанау', 'Жаңадан бастағандарға жақсы'],
+          },
+          season: {
+            name: 'Маусымдық абонемент',
+            description: 'Бүкіл қысқы маусымға шексіз қолжетімді',
+            features: ['Шексіз баруға болады', 'Көтергішке басымдық', 'Арнайы жеңілдіктер', 'Қараша-сәуір жарамды'],
+          },
+        },
+        pricing: {
+          fullDay: {
+            adult: '12 000',
+            child: '8 000',
+            senior: '9 000',
+          },
+          halfDay: {
+            adult: '8 000',
+            child: '5 000',
+            senior: '6 000',
+          },
+          season: {
+            adult: '180 000',
+            child: '120 000',
+            senior: '140 000',
+          },
+        },
+        currency: 'тг',
+        buyNow: 'Қазір сатып алу',
+        popular: 'Ең танымал',
+        bestValue: 'Тиімді ұсыныс',
+        additionalServices: {
+          title: 'Қосымша қызметтер',
+          equipment: {
+            name: 'Жабдық жалдау',
+            description: 'Шаңғы немесе сноуборд жабдықтарының толық жинағы',
+            price: '5 000',
+          },
+          instructor: {
+            name: 'Жеке нұсқаушы',
+            description: 'Сертификатталған нұсқаушымен жеке сабақ (2 сағат)',
+            price: '15 000',
+          },
+          locker: {
+            name: 'Сақтау камерасы',
+            description: 'Заттарыңызға арналған қауіпсіз шкаф',
+            price: '1 000',
+          },
+        },
+        importantInfo: {
+          title: 'Маңызды ақпарат',
+          items: [
+            '6 жасқа дейінгі балалар тегін сырғанайды',
+            'Жеңілдікті билеттер үшін жеке куәлік қажет',
+            'Маусымдық абонементтер басқаларға берілмейді',
+            'Билеттер сатып алғаннан кейін қайтарылмайды',
+            'Қауіпсіздік үшін трассалар жабылуы мүмкін',
+          ],
+        },
       },
       checkout: {
         title: 'Сатып алуды аяқтау',
