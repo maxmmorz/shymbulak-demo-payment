@@ -4,6 +4,13 @@ import Footer from '@/components/Footer';
 import Home from '@/pages/Home';
 import Tickets from '@/pages/Tickets';
 import Rent from '@/pages/Rent';
+import School from '@/pages/School';
+import Entertainment from '@/pages/Entertainment';
+import Hotels from '@/pages/Hotels';
+import Restaurants from '@/pages/Restaurants';
+import Events from '@/pages/Events';
+import Kids from '@/pages/Kids';
+import ForBusiness from '@/pages/ForBusiness';
 import Checkout from '@/pages/Checkout';
 import Success from '@/pages/Success';
 import Failed from '@/pages/Failed';
@@ -17,6 +24,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/rent" element={<Rent />} />
+        <Route path="/school" element={<School />} />
+        <Route path="/entertainment" element={<Entertainment />} />
+        <Route path="/hotels" element={<Hotels />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/kids" element={<Kids />} />
+        <Route path="/for-business" element={<ForBusiness />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success" element={<Success />} />
         <Route path="/failed" element={<Failed />} />

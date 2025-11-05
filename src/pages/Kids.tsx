@@ -1,0 +1,133 @@
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Button } from '@/components/ui/button';
+
+export default function Kids() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const activities = ['playground', 'skiSchool', 'snowpark', 'games', 'daycare', 'party'] as const;
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-ski-blue via-primary to-ski-ice py-16 sm:py-20 md:py-24">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-6 flex justify-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
+              Kids Activities
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
+              Fun and safe activities for children of all ages
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Activity Cards */}
+      <div className="container mx-auto px-3 sm:px-4 py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
+            {activities.map((activity, idx) => (
+              <div
+                key={activity}
+                className={`relative bg-white dark:bg-card rounded-3xl shadow-xl overflow-hidden ${
+                  idx === 0 ? 'ring-4 ring-ski-blue' : ''
+                }`}
+              >
+                {idx === 0 && (
+                  <div className="absolute top-0 right-0 bg-ski-blue text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="p-6 sm:p-8">
+                  <div className="mb-6">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-3 capitalize">
+                      {activity.replace(/([A-Z])/g, ' $1').trim()}
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">
+                      Safe and supervised fun for kids
+                    </p>
+                  </div>
+
+                  <ul className="mb-6 space-y-2">
+                    <li className="flex items-start gap-2">
+                      <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm text-foreground">Experienced staff supervision</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm text-foreground">Age-appropriate activities</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm text-foreground">Safe environment</span>
+                    </li>
+                  </ul>
+
+                  <div className="border-t border-border pt-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-sm font-medium text-muted-foreground">Per hour</span>
+                      <span className="text-xl font-bold text-foreground">{2000 + idx * 1500} KZT</span>
+                    </div>
+                  </div>
+
+                  <Button
+                    onClick={() => navigate('/checkout')}
+                    className={`w-full mt-6 min-h-[48px] font-bold text-base ${
+                      idx === 0 ? 'bg-ski-blue hover:bg-ski-blue/90' : 'bg-primary hover:bg-primary/90'
+                    }`}
+                  >
+                    Book Activity
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Important Information */}
+          <div className="bg-blue-50 dark:bg-slate-800 rounded-2xl p-6 sm:p-8 md:p-10">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-ski-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 text-ski-blue" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">
+                Important Information
+              </h2>
+            </div>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                <span className="text-sm sm:text-base text-foreground">Age restrictions may apply for certain activities</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                <span className="text-sm sm:text-base text-foreground">All staff are certified childcare professionals</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                <span className="text-sm sm:text-base text-foreground">Snacks and drinks provided for full-day bookings</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
