@@ -2,9 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { FadeIn, StaggerContainer, StaggerItem, ScaleOnHover } from '@/components/animations';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function Entertainment() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const activities = ['tubing', 'snowmobile', 'paragliding', 'sledding', 'iceskating', 'photoshoot'] as const;
 
@@ -29,12 +31,12 @@ export default function Entertainment() {
             </FadeIn>
             <FadeIn delay={0.2} direction="up">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
-                Entertainment & Activities
+                {t('entertainment.title')}
               </h1>
             </FadeIn>
             <FadeIn delay={0.3} direction="up">
               <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
-                Exciting winter activities for everyone
+                {t('entertainment.subtitle')}
               </p>
             </FadeIn>
           </div>
@@ -58,7 +60,7 @@ export default function Entertainment() {
                   >
                     {idx === 0 && (
                       <div className="absolute top-0 right-0 bg-ski-blue text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
-                        Most Popular
+                        {t('entertainment.mostPopular')}
                       </div>
                     )}
 
@@ -68,7 +70,7 @@ export default function Entertainment() {
                           {activity.replace(/([A-Z])/g, ' $1').trim()}
                         </h3>
                         <p className="text-sm sm:text-base text-muted-foreground">
-                          Unforgettable winter experience
+                          {t('entertainment.activityDescription')}
                         </p>
                       </div>
 
@@ -77,26 +79,26 @@ export default function Entertainment() {
                           <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          <span className="text-sm text-foreground">Safety equipment provided</span>
+                          <span className="text-sm text-foreground">{t('entertainment.safetyEquipment')}</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          <span className="text-sm text-foreground">Professional guidance</span>
+                          <span className="text-sm text-foreground">{t('entertainment.guidance')}</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          <span className="text-sm text-foreground">Suitable for all ages</span>
+                          <span className="text-sm text-foreground">{t('entertainment.allAges')}</span>
                         </li>
                       </ul>
 
                       <div className="border-t border-border pt-6">
                         <div className="flex items-center justify-between mb-4">
-                          <span className="text-sm font-medium text-muted-foreground">Starting from</span>
-                          <span className="text-xl font-bold text-foreground">{8000 + idx * 3000} KZT</span>
+                          <span className="text-sm font-medium text-muted-foreground">{t('entertainment.startingFrom')}</span>
+                          <span className="text-xl font-bold text-foreground">{8000 + idx * 3000} {t('entertainment.currency')}</span>
                         </div>
                       </div>
 
@@ -106,7 +108,7 @@ export default function Entertainment() {
                           idx === 0 ? 'bg-ski-blue hover:bg-ski-blue/90' : 'bg-primary hover:bg-primary/90'
                         }`}
                       >
-                        Book Activity
+                        {t('entertainment.bookActivity')}
                       </Button>
                     </div>
                   </div>
@@ -125,22 +127,16 @@ export default function Entertainment() {
                   </svg>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">
-                  Important Information
+                  {t('entertainment.importantInfo.title')}
                 </h2>
               </div>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                  <span className="text-sm sm:text-base text-foreground">Weather conditions may affect availability</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                  <span className="text-sm sm:text-base text-foreground">Age and weight restrictions may apply</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                  <span className="text-sm sm:text-base text-foreground">Advanced booking recommended during peak season</span>
-                </li>
+                {(t('entertainment.importantInfo.items', { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                    <span className="text-sm sm:text-base text-foreground">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </FadeIn>

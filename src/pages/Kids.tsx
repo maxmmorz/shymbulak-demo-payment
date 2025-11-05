@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function Kids() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const activities = ['playground', 'skiSchool', 'snowpark', 'games', 'daycare', 'party'] as const;
 
@@ -20,10 +22,10 @@ export default function Kids() {
               </div>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
-              Kids Activities
+              {t('kids.title')}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
-              Fun and safe activities for children of all ages
+              {t('kids.subtitle')}
             </p>
           </div>
         </div>
@@ -42,7 +44,7 @@ export default function Kids() {
               >
                 {idx === 0 && (
                   <div className="absolute top-0 right-0 bg-ski-blue text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
-                    Most Popular
+                    {t('kids.mostPopular')}
                   </div>
                 )}
 
@@ -52,7 +54,7 @@ export default function Kids() {
                       {activity.replace(/([A-Z])/g, ' $1').trim()}
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
-                      Safe and supervised fun for kids
+                      {t('kids.activityDescription')}
                     </p>
                   </div>
 
@@ -61,26 +63,26 @@ export default function Kids() {
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Experienced staff supervision</span>
+                      <span className="text-sm text-foreground">{t('kids.supervision')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Age-appropriate activities</span>
+                      <span className="text-sm text-foreground">{t('kids.ageAppropriate')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Safe environment</span>
+                      <span className="text-sm text-foreground">{t('kids.safeEnvironment')}</span>
                     </li>
                   </ul>
 
                   <div className="border-t border-border pt-6">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm font-medium text-muted-foreground">Per hour</span>
-                      <span className="text-xl font-bold text-foreground">{2000 + idx * 1500} KZT</span>
+                      <span className="text-sm font-medium text-muted-foreground">{t('kids.perHour')}</span>
+                      <span className="text-xl font-bold text-foreground">{2000 + idx * 1500} {t('kids.currency')}</span>
                     </div>
                   </div>
 
@@ -90,7 +92,7 @@ export default function Kids() {
                       idx === 0 ? 'bg-ski-blue hover:bg-ski-blue/90' : 'bg-primary hover:bg-primary/90'
                     }`}
                   >
-                    Book Activity
+                    {t('kids.bookActivity')}
                   </Button>
                 </div>
               </div>
@@ -106,22 +108,16 @@ export default function Kids() {
                 </svg>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">
-                Important Information
+                {t('kids.importantInfo.title')}
               </h2>
             </div>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Age restrictions may apply for certain activities</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">All staff are certified childcare professionals</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Snacks and drinks provided for full-day bookings</span>
-              </li>
+              {(t('kids.importantInfo.items', { returnObjects: true }) as string[]).map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                  <span className="text-sm sm:text-base text-foreground">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

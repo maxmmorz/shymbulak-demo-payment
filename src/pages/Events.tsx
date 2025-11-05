@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function Events() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const events = ['competition', 'festival', 'concert', 'workshop', 'exhibition', 'party'] as const;
 
@@ -20,10 +22,10 @@ export default function Events() {
               </div>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
-              Events & Festivals
+              {t('events.title')}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
-              Join exciting events and celebrations
+              {t('events.subtitle')}
             </p>
           </div>
         </div>
@@ -42,7 +44,7 @@ export default function Events() {
               >
                 {idx === 0 && (
                   <div className="absolute top-0 right-0 bg-ski-blue text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
-                    Upcoming
+                    {t('events.upcoming')}
                   </div>
                 )}
 
@@ -52,7 +54,7 @@ export default function Events() {
                       {event}
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
-                      Exciting mountain event experience
+                      {t('events.eventDescription')}
                     </p>
                   </div>
 
@@ -61,26 +63,26 @@ export default function Events() {
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Professional organization</span>
+                      <span className="text-sm text-foreground">{t('events.professionalOrganization')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Open to all skill levels</span>
+                      <span className="text-sm text-foreground">{t('events.allLevels')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Food & refreshments included</span>
+                      <span className="text-sm text-foreground">{t('events.foodIncluded')}</span>
                     </li>
                   </ul>
 
                   <div className="border-t border-border pt-6">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm font-medium text-muted-foreground">Entry fee</span>
-                      <span className="text-xl font-bold text-foreground">{3000 + idx * 2500} KZT</span>
+                      <span className="text-sm font-medium text-muted-foreground">{t('events.entryFee')}</span>
+                      <span className="text-xl font-bold text-foreground">{3000 + idx * 2500} {t('events.currency')}</span>
                     </div>
                   </div>
 
@@ -90,7 +92,7 @@ export default function Events() {
                       idx === 0 ? 'bg-ski-blue hover:bg-ski-blue/90' : 'bg-primary hover:bg-primary/90'
                     }`}
                   >
-                    Get Tickets
+                    {t('events.getTickets')}
                   </Button>
                 </div>
               </div>
@@ -106,22 +108,16 @@ export default function Events() {
                 </svg>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">
-                Important Information
+                {t('events.importantInfo.title')}
               </h2>
             </div>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Check event calendar for specific dates and times</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Early bird discounts available for advance bookings</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Events may be postponed due to weather conditions</span>
-              </li>
+              {(t('events.importantInfo.items', { returnObjects: true }) as string[]).map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                  <span className="text-sm sm:text-base text-foreground">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

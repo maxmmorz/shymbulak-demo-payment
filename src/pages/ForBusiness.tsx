@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function ForBusiness() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const packages = ['teamBuilding', 'conference', 'corporate', 'retreat', 'training', 'celebration'] as const;
 
@@ -20,10 +22,10 @@ export default function ForBusiness() {
               </div>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
-              Corporate & Business
+              {t('forBusiness.title')}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
-              Perfect venue for corporate events and team building
+              {t('forBusiness.subtitle')}
             </p>
           </div>
         </div>
@@ -42,17 +44,17 @@ export default function ForBusiness() {
               >
                 {idx === 0 && (
                   <div className="absolute top-0 right-0 bg-ski-blue text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
-                    Popular
+                    {t('forBusiness.popular')}
                   </div>
                 )}
 
                 <div className="p-6 sm:p-8">
                   <div className="mb-6">
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-3 capitalize">
-                      {pkg.replace(/([A-Z])/g, ' $1').trim()} Package
+                      {t('forBusiness.packageTitle', { package: pkg.replace(/([A-Z])/g, ' $1').trim() })}
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
-                      Professional corporate event experience
+                      {t('forBusiness.packageDescription')}
                     </p>
                   </div>
 
@@ -61,26 +63,26 @@ export default function ForBusiness() {
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Dedicated event coordinator</span>
+                      <span className="text-sm text-foreground">{t('forBusiness.eventCoordinator')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Conference facilities</span>
+                      <span className="text-sm text-foreground">{t('forBusiness.facilities')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Catering & accommodation</span>
+                      <span className="text-sm text-foreground">{t('forBusiness.catering')}</span>
                     </li>
                   </ul>
 
                   <div className="border-t border-border pt-6">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm font-medium text-muted-foreground">Starting from</span>
-                      <span className="text-xl font-bold text-foreground">{50000 + idx * 25000} KZT</span>
+                      <span className="text-sm font-medium text-muted-foreground">{t('forBusiness.startingFrom')}</span>
+                      <span className="text-xl font-bold text-foreground">{50000 + idx * 25000} {t('forBusiness.currency')}</span>
                     </div>
                   </div>
 
@@ -90,7 +92,7 @@ export default function ForBusiness() {
                       idx === 0 ? 'bg-ski-blue hover:bg-ski-blue/90' : 'bg-primary hover:bg-primary/90'
                     }`}
                   >
-                    Request Quote
+                    {t('forBusiness.requestQuote')}
                   </Button>
                 </div>
               </div>
@@ -106,22 +108,16 @@ export default function ForBusiness() {
                 </svg>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">
-                Important Information
+                {t('forBusiness.importantInfo.title')}
               </h2>
             </div>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Custom packages available for groups of 20+</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">AV equipment and technical support included</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Flexible scheduling and payment terms</span>
-              </li>
+              {(t('forBusiness.importantInfo.items', { returnObjects: true }) as string[]).map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                  <span className="text-sm sm:text-base text-foreground">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -312,7 +312,7 @@ export default function Checkout() {
                               />
                             </button>
                             <div className="flex-1">
-                              <div className="text-xs font-semibold text-foreground">Save card for future use</div>
+                              <div className="text-xs font-semibold text-foreground">{t('checkout.saveCard')}</div>
                             </div>
                           </div>
                         </div>

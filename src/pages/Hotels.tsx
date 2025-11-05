@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function Hotels() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const accommodations = ['deluxe', 'suite', 'standard', 'family', 'chalet', 'apartment'] as const;
 
@@ -20,10 +22,10 @@ export default function Hotels() {
               </div>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 sm:mb-6">
-              Hotels & Accommodation
+              {t('hotels.title')}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto">
-              Comfortable stays in the heart of the mountains
+              {t('hotels.subtitle')}
             </p>
           </div>
         </div>
@@ -42,17 +44,17 @@ export default function Hotels() {
               >
                 {idx === 0 && (
                   <div className="absolute top-0 right-0 bg-ski-blue text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
-                    Luxury
+                    {t('hotels.luxury')}
                   </div>
                 )}
 
                 <div className="p-6 sm:p-8">
                   <div className="mb-6">
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-3 capitalize">
-                      {accommodation} Room
+                      {t('hotels.roomTitle', { accommodation })}
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
-                      Perfect for a relaxing mountain getaway
+                      {t('hotels.roomDescription')}
                     </p>
                   </div>
 
@@ -61,26 +63,26 @@ export default function Hotels() {
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Mountain view</span>
+                      <span className="text-sm text-foreground">{t('hotels.mountainView')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Free Wi-Fi & breakfast</span>
+                      <span className="text-sm text-foreground">{t('hotels.amenities')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-5 h-5 text-ski-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-foreground">Spa & wellness access</span>
+                      <span className="text-sm text-foreground">{t('hotels.spaAccess')}</span>
                     </li>
                   </ul>
 
                   <div className="border-t border-border pt-6">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm font-medium text-muted-foreground">Per night</span>
-                      <span className="text-xl font-bold text-foreground">{25000 + idx * 10000} KZT</span>
+                      <span className="text-sm font-medium text-muted-foreground">{t('hotels.perNight')}</span>
+                      <span className="text-xl font-bold text-foreground">{25000 + idx * 10000} {t('hotels.currency')}</span>
                     </div>
                   </div>
 
@@ -90,7 +92,7 @@ export default function Hotels() {
                       idx === 0 ? 'bg-ski-blue hover:bg-ski-blue/90' : 'bg-primary hover:bg-primary/90'
                     }`}
                   >
-                    Book Room
+                    {t('hotels.bookRoom')}
                   </Button>
                 </div>
               </div>
@@ -106,22 +108,16 @@ export default function Hotels() {
                 </svg>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">
-                Important Information
+                {t('hotels.importantInfo.title')}
               </h2>
             </div>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Check-in: 14:00 | Check-out: 12:00</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Free cancellation up to 48 hours before arrival</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
-                <span className="text-sm sm:text-base text-foreground">Shuttle service to ski lifts available</span>
-              </li>
+              {(t('hotels.importantInfo.items', { returnObjects: true }) as string[]).map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-ski-blue rounded-full flex-shrink-0 mt-2"></span>
+                  <span className="text-sm sm:text-base text-foreground">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

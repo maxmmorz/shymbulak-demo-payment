@@ -55,13 +55,13 @@ export default function SkiPassForm() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Back to Tickets
+              {t('skiPassForm.backToTickets')}
             </button>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-2">
-              Ski Pass Application
+              {t('skiPassForm.title')}
             </h1>
             <p className="text-lg text-blue-50">
-              Fill in your details to complete your ski pass purchase
+              {t('skiPassForm.subtitle')}
             </p>
           </div>
         </div>
@@ -74,21 +74,21 @@ export default function SkiPassForm() {
             {/* Left Side - Form */}
             <div className="bg-white dark:bg-card rounded-3xl shadow-xl p-6 sm:p-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
-                Personal Information
+                {t('skiPassForm.personalInfo')}
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Face Photo Upload */}
                 <div>
                   <label className="block text-sm font-semibold text-foreground mb-2">
-                    Face Photo *
+                    {t('skiPassForm.facePhoto')}
                   </label>
                   <div className="flex items-center gap-4">
                     <div className="w-24 h-24 rounded-xl bg-muted flex items-center justify-center overflow-hidden">
                       {formData.photo ? (
                         <img
                           src={URL.createObjectURL(formData.photo)}
-                          alt="Preview"
+                          alt={t('skiPassForm.preview')}
                           className="w-full h-full object-cover"
                         />
                       ) : (
@@ -109,10 +109,10 @@ export default function SkiPassForm() {
                         htmlFor="photo-upload"
                         className="cursor-pointer inline-block px-4 py-2 bg-ski-blue text-white rounded-lg hover:bg-ski-blue/90 transition-colors text-sm font-medium"
                       >
-                        Upload Photo
+                        {t('skiPassForm.uploadPhoto')}
                       </label>
                       <p className="text-xs text-muted-foreground mt-2">
-                        JPG, PNG or GIF. Max 5MB
+                        {t('skiPassForm.photoFormat')}
                       </p>
                     </div>
                   </div>
@@ -121,7 +121,7 @@ export default function SkiPassForm() {
                 {/* Tariff Selector */}
                 <div>
                   <label htmlFor="tariff" className="block text-sm font-semibold text-foreground mb-2">
-                    Tariff *
+                    {t('skiPassForm.tariff')}
                   </label>
                   <select
                     id="tariff"
@@ -130,16 +130,16 @@ export default function SkiPassForm() {
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ski-blue"
                   >
-                    <option value="adult">Adult</option>
-                    <option value="child">Child (6-12 years)</option>
-                    <option value="senior">Senior (65+)</option>
+                    <option value="adult">{t('tickets.categories.adult')}</option>
+                    <option value="child">{t('tickets.categories.child')}</option>
+                    <option value="senior">{t('tickets.categories.senior')}</option>
                   </select>
                 </div>
 
                 {/* Name */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
-                    First Name *
+                    {t('skiPassForm.firstName')}
                   </label>
                   <input
                     type="text"
@@ -155,7 +155,7 @@ export default function SkiPassForm() {
                 {/* Surname */}
                 <div>
                   <label htmlFor="surname" className="block text-sm font-semibold text-foreground mb-2">
-                    Last Name *
+                    {t('skiPassForm.lastName')}
                   </label>
                   <input
                     type="text"
@@ -171,7 +171,7 @@ export default function SkiPassForm() {
                 {/* Birthdate */}
                 <div>
                   <label htmlFor="birthdate" className="block text-sm font-semibold text-foreground mb-2">
-                    Date of Birth *
+                    {t('skiPassForm.dateOfBirth')}
                   </label>
                   <input
                     type="date"
@@ -187,7 +187,7 @@ export default function SkiPassForm() {
                 {/* Phone Number */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-semibold text-foreground mb-2">
-                    Phone Number *
+                    {t('skiPassForm.phoneNumber')}
                   </label>
                   <input
                     type="tel"
@@ -203,7 +203,7 @@ export default function SkiPassForm() {
                 {/* Email */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                    Email Address *
+                    {t('skiPassForm.emailAddress')}
                   </label>
                   <input
                     type="email"
@@ -221,7 +221,7 @@ export default function SkiPassForm() {
                   type="submit"
                   className="w-full min-h-[48px] font-bold text-base bg-ski-blue hover:bg-ski-blue/90"
                 >
-                  Proceed to Checkout
+                  {t('skiPassForm.proceedToCheckout')}
                 </Button>
               </form>
             </div>
@@ -230,7 +230,7 @@ export default function SkiPassForm() {
             <div className="lg:sticky lg:top-24 h-fit">
               <div className="bg-white dark:bg-card rounded-3xl shadow-xl p-6 sm:p-8">
                 <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
-                  Ski Pass Details
+                  {t('skiPassForm.passDetails')}
                 </h2>
 
                 {/* Pass Type Badge */}
@@ -249,7 +249,7 @@ export default function SkiPassForm() {
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold text-foreground mb-4">Includes:</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-4">{t('skiPassForm.includes')}</h3>
                   <ul className="space-y-3">
                     {(t(`tickets.ticketTypes.${ticketType}.features`, { returnObjects: true }) as string[]).map(
                       (feature, idx) => (
@@ -272,13 +272,13 @@ export default function SkiPassForm() {
                 {/* Price Summary */}
                 <div className="border-t border-border pt-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-muted-foreground">Category:</span>
+                    <span className="text-muted-foreground">{t('skiPassForm.category')}</span>
                     <span className="font-semibold text-foreground capitalize">
                       {t(`tickets.categories.${category}`)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-muted-foreground">Price:</span>
+                    <span className="text-muted-foreground">{t('skiPassForm.price')}</span>
                     <span className="text-2xl font-bold text-ski-blue">
                       {t(`tickets.pricing.${ticketType}.${category}`)} {t('tickets.currency')}
                     </span>
@@ -291,9 +291,9 @@ export default function SkiPassForm() {
                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                       </svg>
                       <div>
-                        <p className="text-sm font-semibold text-foreground mb-1">Important</p>
+                        <p className="text-sm font-semibold text-foreground mb-1">{t('skiPassForm.important')}</p>
                         <p className="text-xs text-muted-foreground">
-                          Your ski pass will be ready for pickup at the main ticket office. Please bring a valid ID.
+                          {t('skiPassForm.pickupInfo')}
                         </p>
                       </div>
                     </div>
